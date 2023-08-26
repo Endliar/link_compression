@@ -1,5 +1,9 @@
 <?php
 
+namespace Model;
+use PDO;
+use PDOException;
+
 class Database
 {
     private $host = 'localhost';
@@ -9,7 +13,8 @@ class Database
 
     private $connection;
 
-    public function __construct() {
+    public function __construct()
+    {
         try {
             $this->connection = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
         } catch (PDOException $e) {
@@ -17,7 +22,8 @@ class Database
         }
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->connection;
     }
 }

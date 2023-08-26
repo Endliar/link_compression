@@ -1,6 +1,8 @@
 <?php
 
-include "C:/xampp/htdocs/link compression/database/Database.php";
+use Model\Database;
+
+include "C:/xampp/htdocs/link compression/Model/Database.php";
 
 $database = new Database();
 $connection = $database->getConnection();

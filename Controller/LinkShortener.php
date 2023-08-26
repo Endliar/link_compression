@@ -1,8 +1,8 @@
 <?php
 
-namespace work_with_links;
+namespace Controller;
 
-use Database;
+use Model\Database;
 use PDO;
 
 class LinkShortener

@@ -6,7 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Сократить ссылку</title>
+    <style>
+        .input-group {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,21 +31,19 @@
         </div>
     </div>
 </nav>
-<h1 class="text-center">Вы успешно сократили ссылку</h1>
-<?php
-
-use work_with_links\LinkShortener;
-include "C:/xampp/htdocs/link compression/database/Database.php";
-include 'C:/xampp/htdocs/link compression/work_with_links/LinkShortener.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $url = $_POST['url'];
-
-    $database = new Database();
-    $linkShortener = new LinkShortener($database);
-
-    $linkShortener->generateLink($url);
-}
-?>
+<div class="container">
+    <form action="shorten_link.php" method="post">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Введите полный URL" name="url">
+            <button class="btn btn-primary" type="submit">Сократить</button>
+        </div>
+    </form>
+    <form action="redirect.php" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Введите короткий URL" name="url">
+            <button class="btn btn-primary" type="submit">Перейти</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
