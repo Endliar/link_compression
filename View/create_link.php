@@ -25,7 +25,7 @@
                     <a class="nav-link" href="index.php">Главная</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="create_link.php">Сократить ссылку</a>
+                    <a class="nav-link" href="create_link.php">Работа с ссылками</a>
                 </li>
             </ul>
         </div>
@@ -34,13 +34,13 @@
 <div class="container">
     <form action="shorten_link.php" method="post">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Введите полный URL" name="url">
+            <input type="text" class="form-control" placeholder="Введите полный URL для добавления в БД" name="url">
             <button class="btn btn-primary" type="submit">Сократить</button>
         </div>
     </form>
-    <form action="redirect.php" method="get">
+    <form action="../Controller/redirect.php" method="get">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Введите короткий URL" name="url">
+            <input type="text" class="form-control" placeholder="Введите короткий URL для редиректа по адресу" name="url">
             <button class="btn btn-primary" type="submit">Перейти</button>
         </div>
     </form>

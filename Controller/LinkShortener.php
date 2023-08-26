@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\Database;
+use Entities\Url;
 use PDO;
 
 class LinkShortener
@@ -42,16 +43,13 @@ class LinkShortener
         $stmt->execute();
     }
 
-    public function regenerateLinks($id) {
+    public function regenerateLinks($linkId, $newUrl) {
         $connection = $this->database->getConnection();
 
-        $newShortName = substr(md5(uniqid()), 0, 6);
+        $stmt = $connection->prepare("UPDATE urls SET url = :new_url WHERE id = :link_id");
 
-        $stmt = $connection->prepare("UPDATE urls SET short_url = :short_name WHERE id = :id");
-        $stmt->bindParam(':short_name', $newShortName);
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':new_url', $newUrl);
+        $stmt->bindParam(':link_id', $linkId);
         $stmt->execute();
-
-        return "http://example.io/$newShortName";
     }
 }

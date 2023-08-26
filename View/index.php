@@ -1,14 +1,16 @@
 <?php
 
+use Controller\LinkShortener;
 use Model\Database;
 
 include "C:/xampp/htdocs/link compression/Model/Database.php";
+include 'C:/xampp/htdocs/link compression/Controller/LinkShortener.php';
 
 $database = new Database();
-$connection = $database->getConnection();
+$linkShortener = new LinkShortener($database);
 
-$query = $connection->query('SELECT * FROM urls');
-$data = $query->fetchAll(PDO::FETCH_ASSOC);
+$links = $linkShortener->getAllLinks();
+
 
 ?>
 
@@ -34,7 +36,7 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
                     <a class="nav-link" href="index.php">Главная</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="create_link.php">Сократить ссылку</a>
+                    <a class="nav-link" href="create_link.php">Работа с ссылками</a>
                 </li>
             </ul>
         </div>
@@ -51,13 +53,13 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($data as $row) { ?>
+    <?php foreach ($links as $row) { ?>
         <tr>
             <td><?php echo $row['url']; ?></td>
             <td><?php echo $row['short_url']; ?></td>
             <td>
-                <a class="btn btn-primary btn-sm">Update</a>
-                <a class="btn btn-danger btn-sm">Delete</a>
+                <a class="btn btn-primary btn-sm" href="update_link.php?id=<?php echo $row['id']; ?>">Update</a>
+                <a class="btn btn-danger btn-sm" href="delete_link.php?id=<?php echo $row['id']; ?>">Delete</a>
             </td>
         </tr>
     <?php } ?>
