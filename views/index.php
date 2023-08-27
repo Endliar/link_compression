@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Ссылки</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,31 +20,29 @@
                     <a class="nav-link" href="index.php">Главная</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="create_link.php">Сократить ссылку</a>
+                    <a class="nav-link" href="create_link.php">Работа с ссылками</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<h1 class="text-center">Вы успешно сократили ссылку</h1>
-<h2 class="text-center">Можете вернуться на главную</h2>
-<?php
+<h1 class="text-center">База ссылок</h1>
 
-use Controller\LinkShortener;
-use Model\Database;
-
-include "C:/xampp/htdocs/link compression/Model/Database.php";
-include 'C:/xampp/htdocs/link compression/Controller/LinkShortener.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $url = $_POST['url'];
-
-    $database = new Database();
-    $linkShortener = new LinkShortener($database);
-
-    $linkShortener->generateLink($url);
-
-}
-?>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Полная ссылка</th>
+        <th>Укороченная ссылка</th>
+        <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    require_once '../controllers/UrlController.php';
+    $urlController = new controllers\UrlController();
+    $urlController->indexAction();
+    ?>
+    </tbody>
+</table>
 </body>
 </html>

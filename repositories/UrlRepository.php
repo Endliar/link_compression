@@ -1,55 +1,52 @@
 <?php
 
-namespace Controller;
+namespace repositories;
 
-use Model\Database;
-use Entities\Url;
+use models\Database;
+use models\DTO\ConnectionDTO;
 use PDO;
 
-class LinkShortener
-{
-    private $database;
+include "C:/xampp/htdocs/link compression/models/Database.php";
+include "C:/xampp/htdocs/link compression/models/DTO/ConnectionDTO.php";
 
-    public function __construct(Database $database) {
-        $this->database = $database;
+class UrlRepository
+{
+    public Database $database;
+
+    public function __construct() {
+        $this->database = new Database(new ConnectionDTO('localhost', 'link', 'root', '0611'));
     }
 
-    public function generateLink($url) {
+    public function create($shortName, $url): void
+    {
         $connection = $this->database->getConnection();
-
-        $shortName = substr(md5(uniqid()), 0, 6);
-
-        $shortLink = 'https://' . $_SERVER["HTTP_HOST"] . '/' . $shortName;
-
         $stmt = $connection->prepare("INSERT INTO urls (short_url, url) values (:short_name, :full_url)");
-        $stmt->bindParam(':short_name', $shortLink);
+        $stmt->bindParam(':short_name', $shortName);
         $stmt->bindParam(':full_url', $url);
         $stmt->execute();
     }
 
-    public function getAllLinks() {
+    public function getAll(): false|array
+    {
         $connection = $this->database->getConnection();
-
         $stmt = $connection->query("SELECT * FROM urls");
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function deleteLink($id) {
+    public function delete($id): void
+    {
         $connection = $this->database->getConnection();
-
         $stmt = $connection->prepare("DELETE FROM urls WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
 
-    public function regenerateLinks($linkId, $newUrl) {
+    public function update($id, $url): void
+    {
         $connection = $this->database->getConnection();
-
         $stmt = $connection->prepare("UPDATE urls SET url = :new_url WHERE id = :link_id");
-
-        $stmt->bindParam(':new_url', $newUrl);
-        $stmt->bindParam(':link_id', $linkId);
+        $stmt->bindParam(':new_url', $url);
+        $stmt->bindParam(':link_id', $id);
         $stmt->execute();
     }
 }
