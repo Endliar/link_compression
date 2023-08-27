@@ -12,7 +12,7 @@ if (isset($_GET['url'])) {
     $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
     $database = new Database($connectionDto);
     $connection = $database->getConnection();
-    $stmt = $connection->prepare("SELECT url FROM urls WHERE short_url = :shortLink");
+    $stmt = $connection->prepare('SELECT url FROM urls WHERE short_url = :shortLink');
 
     $stmt->bindParam(':shortLink', $shortLink);
     $stmt->execute();
