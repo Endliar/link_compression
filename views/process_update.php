@@ -1,13 +1,11 @@
 <?php
 
-use Controller\LinkShortenerController;
-use Model\Database;
-use Model\DTO\ConnectionDTO;
-use Repository\UrlRepository;
+use controllers\LinkShortenerController;
+use models\Database;
+use models\DTO\ConnectionDTO;
+use repositories\UrlRepository;
 
-include "C:/xampp/htdocs/link compression/models/Database.php";
 include 'C:/xampp/htdocs/link compression/controllers/LinkShortenerController.php';
-include "C:/xampp/htdocs/link compression/models/DTO/ConnectionDTO.php";
 include "C:/xampp/htdocs/link compression/repositories/UrlRepository.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

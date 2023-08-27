@@ -11,10 +11,11 @@ include "C:/xampp/htdocs/link compression/models/DTO/ConnectionDTO.php";
 
 class UrlRepository
 {
-    public Database $database;
+    private Database $database;
 
-    public function __construct() {
-        $this->database = new Database(new ConnectionDTO('localhost', 'link', 'root', '0611'));
+    public function __construct(Database $database)
+    {
+        $this->database = $database;
     }
 
     public function create($shortName, $url): void

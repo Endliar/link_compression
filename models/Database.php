@@ -1,6 +1,7 @@
 <?php
 
 namespace models;
+
 use PDO;
 use PDOException;
 use models\Dto\ConnectionDTO;

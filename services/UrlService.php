@@ -10,11 +10,11 @@ include "C:/xampp/htdocs/link compression/repositories/UrlRepository.php";
 
 class UrlService
 {
-    public UrlRepository $repo;
+    private UrlRepository $repo;
 
-    public function __construct()
+    public function __construct(Database $database)
     {
-        $this->repo = new UrlRepository();
+        $this->repo = new UrlRepository($database);
     }
 
     public function getAllLinks() : array {

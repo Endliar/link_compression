@@ -9,11 +9,12 @@ class LinkShortenerController
 {
     private UrlRepository $repository;
 
-    public function __construct(UrlRepository $repository) {
+    public function __construct(UrlRepository $repository)
+    {
         $this->repository = $repository;
     }
 
-    public function generateLink(int $url): void
+    public function generateLink(string $url): void
     {
         $shortName = substr(md5(uniqid()), 0, 6);
         $shortLink = 'https://' . $_SERVER["HTTP_HOST"]. '/' . $shortName;
@@ -31,7 +32,7 @@ class LinkShortenerController
         $this->repository->delete($id);
     }
 
-    public function regenerateLinks(int $linkId, int $newUrl): void
+    public function regenerateLinks(int $linkId, string $newUrl): void
     {
         $this->repository->update($linkId, $newUrl);
     }

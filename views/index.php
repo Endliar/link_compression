@@ -38,8 +38,15 @@
     </thead>
     <tbody>
     <?php
+
+    use models\Database;
+    use models\DTO\ConnectionDTO;
+
     require_once '../controllers/UrlController.php';
-    $urlController = new controllers\UrlController();
+    require_once '../models/DTO/ConnectionDTO.php';
+    $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
+    $database = new Database($connectionDto);
+    $urlController = new controllers\UrlController($database);
     $urlController->indexAction();
     ?>
     </tbody>
