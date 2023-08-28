@@ -4,7 +4,7 @@
 use models\Database;
 use models\DTO\ConnectionDTO;
 
-include "C:/xampp/htdocs/link compression/repositories/UrlRepository.php";
+include "C:/xampp/htdocs/link-compression/repositories/UrlRepository.php";
 
 if (isset($_GET['url'])) {
     $shortLink = $_GET['url'];

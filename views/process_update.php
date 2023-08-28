@@ -5,8 +5,8 @@ use models\dto\ConnectionDTO;
 use repositories\UrlRepository;
 use services\LinkShortenerService;
 
-include 'C:/xampp/htdocs/link compression/services/LinkShortenerService.php';
-include "C:/xampp/htdocs/link compression/repositories/UrlRepository.php";
+include 'C:/xampp/htdocs/link-compression/services/LinkShortenerService.php';
+include "C:/xampp/htdocs/link-compression/repositories/UrlRepository.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUrl = $_POST['new_url'];

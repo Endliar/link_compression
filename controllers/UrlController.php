@@ -6,8 +6,8 @@ use models\Database;
 use services\UrlService;
 use UrlView;
 
-include "C:/xampp/htdocs/link compression/services/UrlService.php";
-include "C:/xampp/htdocs/link compression/views/UrlView.php";
+include "C:/xampp/htdocs/link-compression/services/UrlService.php";
+include "C:/xampp/htdocs/link-compression/views/UrlView.php";
 
 class UrlController
 {

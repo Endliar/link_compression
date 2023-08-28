@@ -25,7 +25,7 @@
                     <a class="nav-link" href="index.php">Главная</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="create_link.php">Работа с ссылками</a>
+                    <a class="nav-link" href="../resources/templates/create_link.html">Работа с ссылками</a>
                 </li>
             </ul>
         </div>

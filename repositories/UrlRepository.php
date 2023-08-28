@@ -5,8 +5,8 @@ namespace repositories;
 use models\Database;
 use PDO;
 
-include "C:/xampp/htdocs/link compression/models/Database.php";
-include "C:/xampp/htdocs/link compression/models/dto/ConnectionDTO.php";
+include "C:/xampp/htdocs/link-compression/models/Database.php";
+include "C:/xampp/htdocs/link-compression/models/dto/ConnectionDTO.php";
 
 class UrlRepository
 {

@@ -5,7 +5,7 @@ namespace services;
 use models\Database;
 use repositories\UrlRepository;
 
-include "C:/xampp/htdocs/link compression/repositories/UrlRepository.php";
+include "C:/xampp/htdocs/link-compression/repositories/UrlRepository.php";
 
 
 class UrlService
