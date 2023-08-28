@@ -38,7 +38,7 @@
             <button class="btn btn-primary" type="submit">Сократить</button>
         </div>
     </form>
-    <form action="../controllers/redirect.php" method="get">
+    <form action="../services/redirect.php" method="get">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Введите короткий URL для редиректа по адресу" name="url">
             <button class="btn btn-primary" type="submit">Перейти</button>

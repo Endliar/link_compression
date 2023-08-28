@@ -3,7 +3,6 @@
 namespace repositories;
 
 use models\Database;
-use models\dto\ConnectionDTO;
 use PDO;
 
 include "C:/xampp/htdocs/link compression/models/Database.php";
