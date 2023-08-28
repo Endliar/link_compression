@@ -2,12 +2,12 @@
 
 namespace controllers;
 
+use components\UrlView;
 use models\Database;
 use services\UrlService;
-use UrlView;
 
 include "C:/xampp/htdocs/link-compression/services/UrlService.php";
-include "C:/xampp/htdocs/link-compression/views/UrlView.php";
+include "C:/xampp/htdocs/link-compression/components/UrlView.php";
 
 class UrlController
 {

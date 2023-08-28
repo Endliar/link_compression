@@ -1,7 +1,7 @@
 <?php
 
 use models\Database;
-use models\dto\ConnectionDTO;
+use models\dto\Connection;
 use repositories\UrlRepository;
 use services\LinkShortenerService;
 
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUrl = $_POST['new_url'];
     $linkId = $_POST['link_id'];
 
-    $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
+    $connectionDto = new Connection('localhost', 'link', 'root', '0611');
     $database = new Database($connectionDto);
     $repo = new UrlRepository($database);
     $linkShortener = new LinkShortenerService($repo);

@@ -2,7 +2,7 @@
 
 namespace models\dto;
 
-class ConnectionDTO
+class Connection
 {
     public string $host;
     public string $username;

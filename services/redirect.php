@@ -2,14 +2,14 @@
 
 
 use models\Database;
-use models\DTO\ConnectionDTO;
+use models\dto\Connection;
 
 include "C:/xampp/htdocs/link-compression/repositories/UrlRepository.php";
 
 if (isset($_GET['url'])) {
     $shortLink = $_GET['url'];
 
-    $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
+    $connectionDto = new Connection('localhost', 'link', 'root', '0611');
     $database = new Database($connectionDto);
     $connection = $database->getConnection();
     $stmt = $connection->prepare('SELECT url FROM urls WHERE short_url = :shortLink');

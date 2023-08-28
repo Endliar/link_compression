@@ -4,13 +4,13 @@ namespace models;
 
 use PDO;
 use PDOException;
-use models\dto\ConnectionDTO;
+use models\dto\Connection;
 
 class Database
 {
     private PDO $connection;
 
-    public function __construct(ConnectionDTO $connectionDTO)
+    public function __construct(Connection $connectionDTO)
     {
         $connectionDTO->setHost($connectionDTO->host);
         $connectionDTO->setDatabase($connectionDTO->database);

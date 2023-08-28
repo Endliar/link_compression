@@ -1,14 +1,14 @@
 <?php
 
 use models\Database;
-use models\DTO\ConnectionDTO;
+use models\dto\Connection;
 use repositories\UrlRepository;
 use services\LinkShortenerService;
 
 include 'C:/xampp/htdocs/link-compression/services/LinkShortenerService.php';
 include "C:/xampp/htdocs/link-compression/repositories/UrlRepository.php";
 
-$connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
+$connectionDto = new Connection('localhost', 'link', 'root', '0611');
 $database = new Database($connectionDto);
 $repo = new UrlRepository($database);
 $linkShortener = new LinkShortenerService($repo);

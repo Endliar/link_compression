@@ -20,7 +20,7 @@
                     <a class="nav-link" href="index.php">Главная</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="../resources/templates/create_link.html">Сократить ссылку</a>
+                    <a class="nav-link" href="create_link.html">Сократить ссылку</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
 <?php
 
 use models\Database;
-use models\dto\ConnectionDTO;
+use models\dto\Connection;
 use repositories\UrlRepository;
 use services\LinkShortenerService;
 
@@ -41,7 +41,7 @@ include "C:/xampp/htdocs/link-compression/repositories/UrlRepository.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = $_POST['url'];
 
-    $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
+    $connectionDto = new Connection('localhost', 'link', 'root', '0611');
     $database = new Database($connectionDto);
     $repo = new UrlRepository($database);
     $linkShortener = new LinkShortenerService($repo);

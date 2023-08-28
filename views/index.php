@@ -20,7 +20,7 @@
                     <a class="nav-link" href="index.php">Главная</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="../resources/templates/create_link.html">Работа с ссылками</a>
+                    <a class="nav-link" href="create_link.html">Работа с ссылками</a>
                 </li>
             </ul>
         </div>
@@ -40,12 +40,12 @@
     <?php
 
     use models\Database;
-    use models\dto\ConnectionDTO;
+    use models\dto\Connection;
 
     require_once '../controllers/UrlController.php';
-    require_once '../models/dto/ConnectionDTO.php';
-    $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
-    $database = new Database($connectionDto);
+    require_once '../models/dto/Connection.php';
+    $connection = new Connection('localhost', 'link', 'root', '0611');
+    $database = new Database($connection);
     $urlController = new controllers\UrlController($database);
     $urlController->indexAction();
     ?>
