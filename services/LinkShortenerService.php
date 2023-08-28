@@ -1,11 +1,11 @@
 <?php
 
-namespace controllers;
+namespace services;
 
 
 use repositories\UrlRepository;
 
-class LinkShortenerController
+class LinkShortenerService
 {
     private UrlRepository $repository;
 
