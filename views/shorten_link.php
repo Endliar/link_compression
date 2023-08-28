@@ -31,7 +31,7 @@
 <?php
 
 use models\Database;
-use models\DTO\ConnectionDTO;
+use models\dto\ConnectionDTO;
 use repositories\UrlRepository;
 use services\LinkShortenerService;
 

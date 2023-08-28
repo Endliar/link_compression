@@ -4,7 +4,7 @@ namespace models;
 
 use PDO;
 use PDOException;
-use models\Dto\ConnectionDTO;
+use models\dto\ConnectionDTO;
 
 class Database
 {
@@ -12,6 +12,11 @@ class Database
 
     public function __construct(ConnectionDTO $connectionDTO)
     {
+        $connectionDTO->setHost($connectionDTO->host);
+        $connectionDTO->setDatabase($connectionDTO->database);
+        $connectionDTO->setUsername($connectionDTO->username);
+        $connectionDTO->setPassword($connectionDTO->password);
+
         try {
             $this->connection = new PDO("mysql:host={$connectionDTO->host};dbname={$connectionDTO->database}", $connectionDTO->username, $connectionDTO->password);
         } catch (PDOException $e) {

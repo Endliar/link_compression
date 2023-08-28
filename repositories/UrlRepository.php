@@ -3,11 +3,11 @@
 namespace repositories;
 
 use models\Database;
-use models\DTO\ConnectionDTO;
+use models\dto\ConnectionDTO;
 use PDO;
 
 include "C:/xampp/htdocs/link compression/models/Database.php";
-include "C:/xampp/htdocs/link compression/models/DTO/ConnectionDTO.php";
+include "C:/xampp/htdocs/link compression/models/dto/ConnectionDTO.php";
 
 class UrlRepository
 {

@@ -40,10 +40,10 @@
     <?php
 
     use models\Database;
-    use models\DTO\ConnectionDTO;
+    use models\dto\ConnectionDTO;
 
     require_once '../controllers/UrlController.php';
-    require_once '../models/DTO/ConnectionDTO.php';
+    require_once '../models/dto/ConnectionDTO.php';
     $connectionDto = new ConnectionDTO('localhost', 'link', 'root', '0611');
     $database = new Database($connectionDto);
     $urlController = new controllers\UrlController($database);
